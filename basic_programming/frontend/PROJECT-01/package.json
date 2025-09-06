@@ -1,0 +1,19 @@
+{
+  "name": "project-01",
+  "version": "1.0.0",
+  "description": "Application to understan TS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "dev": "npx tsc && node dist/index.js"
+  },
+  "keywords": [
+    "ait"
+  ],
+  "author": "AlisherKhamidov",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}
