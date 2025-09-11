@@ -7,7 +7,7 @@ type ProfileCardProps = {
 function ProfileCard({ avatar, name, description }: ProfileCardProps) {
   return (
     <div className="profile-card">
-      <img src={avatar} />
+      <img src={avatar} alt="User avatar" />
       <h2>{name}</h2>
       <p>{description}</p>
     </div>
