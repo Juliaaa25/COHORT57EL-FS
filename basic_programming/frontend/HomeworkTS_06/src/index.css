@@ -1,0 +1,95 @@
+/* Общий фон */
+body {
+  background: linear-gradient(135deg, #f0f8ff, #e6e6fa);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Навигация */
+nav {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+nav a {
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+nav a.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+nav a.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+nav a.btn-secondary {
+  background-color: #6c63ff;
+  border: none;
+}
+
+nav a.btn-secondary:hover {
+  background-color: #4b42c1;
+}
+
+/* Заголовки */
+h1,
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Карточки пользователей и комментариев */
+.card {
+  border-radius: 15px;
+  border: none;
+  background: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  color: #007bff;
+}
+
+.card-subtitle {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Список пользователей */
+.list-group-item {
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: #fefefe;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.list-group-item:hover {
+  background: #f0f8ff;
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Loader и Error */
+.text-primary {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.text-danger {
+  font-weight: bold;
+  color: #e74c3c !important;
+}
