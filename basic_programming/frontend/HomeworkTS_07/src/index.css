@@ -1,0 +1,84 @@
+/* ===== Базовые стили ===== */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74ebd5 0%, #00ffd0 100%);
+}
+
+/* ===== Центрирование и контейнер ===== */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container-fullscreen {
+  min-height: 100vh; /* всегда на весь экран */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* вертикальное центрирование */
+  align-items: center; /* горизонтальное центрирование */
+  text-align: center;
+}
+
+/* ===== Логотип (если есть) ===== */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* ===== Навбар ===== */
+.navbar {
+  margin-bottom: 2rem;
+}
+
+/* ===== Карточки (Users / Comments) ===== */
+.card {
+  padding: 2em;
+  margin: 1rem auto;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #ffffffcc;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Ссылки ===== */
+a {
+  text-decoration: none;
+}
+.read-the-docs {
+  color: #888;
+}
