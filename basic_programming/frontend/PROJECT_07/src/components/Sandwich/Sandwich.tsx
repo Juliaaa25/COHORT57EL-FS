@@ -1,50 +1,63 @@
 import { useState, type JSX } from "react";
-import style from "./Sandwich.module.css";
+
+import style from "../Sandwich/Sandwich.module.css";
+import { useTheme } from "../themeContext/useTheme";
 
 export default function Sandwich(): JSX.Element {
-  const [sandwich, setSandwich] = useState<string>("Sandwich : ");
+  const [sandwich, setSandwich] = useState<string>(
+    "Бутербродный конфигуратор: "
+  );
+  const { theme, toggleTheme } = useTheme(); // Используем хук для темы
 
   function handleAddBread(): void {
-    setSandwich(`${sandwich} Bread 🍞`);
+    setSandwich(`${sandwich} Bread🍞`);
   }
   function handleAddCheese(): void {
-    setSandwich(`${sandwich} Cheese 🧀`);
+    setSandwich(`${sandwich} Cheese🧀`);
   }
-  function handleAddBacon(): void {
-    setSandwich(`${sandwich} Bacon 🥓 `);
+  function handleAddSalami(): void {
+    setSandwich(`${sandwich} Salami🍗`);
   }
-  function handleAddSalad(): void {
-    setSandwich(`${sandwich} Salad 🥬`);
+  function handleAddSalat(): void {
+    setSandwich(`${sandwich} Salat🥦`);
   }
-  function handleReset(): void {
-    setSandwich("Sandwich :");
+  function handleClear(): void {
+    setSandwich("Бутербродный конфигуратор: ");
   }
-  return (
-    <div className={style.container}>
-      <h2>Sandwich</h2>
 
+  return (
+    <div
+      className={`${style.container} ${
+        theme === "dark" ? style.dark : style.light
+      }`}
+    >
+      <h2>Sandwich</h2>
       <img
+        className={style.image}
         src="https://mur-mur.top/uploads/posts/2023-05/1683186165_mur-mur-top-p-mini-burgeri-keitering-krasivo-53.jpg"
         alt=""
       />
       <p>{sandwich}</p>
       <div className={style.btnContainer}>
-        <button type="button" onClick={handleAddBread} className={style.btn}>
-          Add bread
+        <button type="button" className={style.btn} onClick={handleAddBread}>
+          Add Bread
         </button>
-        <button type="button" onClick={handleAddCheese} className={style.btn}>
-          Add cheese
+        <button type="button" className={style.btn} onClick={handleAddCheese}>
+          Add Cheese
         </button>
-        <button type="button" onClick={handleAddBacon} className={style.btn}>
-          Add bacon
+        <button type="button" className={style.btn} onClick={handleAddSalami}>
+          Add Salami
         </button>
-        <button type="button" onClick={handleAddSalad} className={style.btn}>
-          Add salad
+        <button type="button" className={style.btn} onClick={handleAddSalat}>
+          Add Salat
         </button>
-        <button type="button" onClick={handleReset} className={style.btn}>
-          Все съесть
+        <button type="button" className={style.btn} onClick={handleClear}>
+          ВСЕ СЪЕСТЬ
         </button>
       </div>
+      <button type="button" className={style.themeToggle} onClick={toggleTheme}>
+        Переключить тему на (текущая: {theme})
+      </button>
     </div>
   );
 }
