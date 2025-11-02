@@ -14,6 +14,7 @@ import Playground from "./components/Playground/Playground";
 import RandomDog from "./components/RandomDog/RandomDog";
 import Sandwich from "./components/Sandwich/Sandwich";
 import { ThemeSwitcher } from "./components/ThemeSwitcher/ThemeSwitcher";
+import Products from "./components/Products/Products";
 
 function App(): JSX.Element {
   return (
@@ -32,6 +33,7 @@ function App(): JSX.Element {
         <Route path="home" element={<Home />} />
         <Route path="userspage" element={<UsersPage />} />
         <Route path="/userspage/:userId" element={<UserPage />} />
+        <Products />
       </Route>
     </Routes>
   );
