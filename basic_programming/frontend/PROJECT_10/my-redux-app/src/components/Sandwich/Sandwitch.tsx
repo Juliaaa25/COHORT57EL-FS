@@ -1,7 +1,7 @@
-// src/components/Sandwich/Sandwich.tsx
 import type { JSX } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../store";
+import styles from "./Sandwich.module.css";
 
 export default function Sandwich(): JSX.Element {
   const dispatch = useDispatch();
@@ -18,15 +18,33 @@ export default function Sandwich(): JSX.Element {
   }
 
   return (
-    <div>
-      <h2>Сделай свой бутерброд</h2>
+    <div className={styles.wrapper}>
+      <h2 className={styles.title}>Сделай свой бутерброд</h2>
 
-      <button onClick={() => addIngredient("хлеб")}>Добавить хлеб</button>
-      <button onClick={() => addIngredient("сыр")}>Добавить сыр</button>
-      <button onClick={() => addIngredient("колбаса")}>Добавить колбасу</button>
-      <button onClick={resetSandwich}>Очистить</button>
+      <div className={styles.buttons}>
+        <button className={styles.button} onClick={() => addIngredient("хлеб")}>
+          Хлеб
+        </button>
+        <button className={styles.button} onClick={() => addIngredient("сыр")}>
+          Сыр
+        </button>
+        <button
+          className={styles.button}
+          onClick={() => addIngredient("колбаса")}
+        >
+          Колбаса
+        </button>
+        <button
+          className={`${styles.button} ${styles.reset}`}
+          onClick={resetSandwich}
+        >
+          Очистить
+        </button>
+      </div>
 
-      <p>Бутерброд: {ingredients.join(" ") || "все съели"}</p>
+      <p className={styles.output}>
+        Бутерброд: {ingredients.join(" ") || "все съели"}
+      </p>
     </div>
   );
 }
