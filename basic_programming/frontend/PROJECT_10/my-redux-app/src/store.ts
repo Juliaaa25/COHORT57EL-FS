@@ -2,12 +2,16 @@ import { combineReducers, createStore } from "redux";
 import counterReducer from "./components/counter/counterReducer";
 import sandwichReducer from "./components/Sandwich/sandwichReducer";
 import tasksReducer from "./components/tasks/tasksReducer";
+import dishesReducer from "./components/dishes/dishesReducer";
+import moviesReducer from "./components/Movies/moviesReducer";
 
 const store = createStore(
   combineReducers({
     counter: counterReducer,
     sandwich: sandwichReducer,
     tasks: tasksReducer,
+    dishes: dishesReducer,
+    movies: moviesReducer,
   })
 );
 export default store;

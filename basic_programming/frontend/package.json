@@ -1,9 +1,14 @@
 {
   "dependencies": {
     "bootstrap": "^5.3.8",
-    "react-router-dom": "^7.9.5"
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.9.5",
+    "redux": "^5.0.1",
+    "uid": "^2.0.2"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3"
   }
 }

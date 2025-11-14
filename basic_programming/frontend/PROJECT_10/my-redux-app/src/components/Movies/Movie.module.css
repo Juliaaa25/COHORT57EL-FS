@@ -1,0 +1,149 @@
+/* === Контейнер списка фильмов === */
+.moviesContainer {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 25px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* === Красивая карточка фильма === */
+.movieCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movieCard:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* === Постер фильма === */
+.poster {
+  width: 160px;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 8px;
+  align-self: center;
+  margin-bottom: 15px;
+}
+
+.descriptionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* === Текстовая часть === */
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* === Блок кнопок === */
+.movieActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* === Кнопка удаления === */
+.deleteBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  background: #ff4c4c;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.deleteBtn:hover {
+  background: #d93636;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* === Кнопка редактирования === */
+.editBtn {
+  background: #1e90ff;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.editBtn:hover {
+  background: #1468c4;
+}
+
+/* === Форма добавления фильма === */
+.movieForm {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  background-color: violet;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.movieForm input {
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.movieForm button {
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  background-color: #1976d2;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.movieForm button:hover {
+  background-color: #1565c0;
+}
+
+/* === Ошибки === */
+.errorText {
+  color: red;
+  font-size: 13px;
+}

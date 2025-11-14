@@ -25,7 +25,7 @@ a:hover {
 }
 
 body {
-  margin: 10px;
+  margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
@@ -34,16 +34,6 @@ body {
 
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
-}
-
-h2 {
-  font-size: 1.7em;
-  line-height: 1.1;
-}
-
-h3 {
-  font-size: 1.6em;
   line-height: 1.1;
 }
 
@@ -75,6 +65,6 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: violet;
+    background-color: #f9f9f9;
   }
 }
