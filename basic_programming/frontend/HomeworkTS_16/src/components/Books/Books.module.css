@@ -1,0 +1,116 @@
+.container {
+  max-width: 760px;
+  margin: 20px auto;
+  font-family: Segoe UI, sans-serif;
+  padding: 10px;
+}
+
+.header {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: #f6f6ff;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.form input {
+  flex: 1;
+  min-width: 160px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+}
+
+.addBtn {
+  padding: 10px 13px;
+  border: none;
+  background: #7a32ff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  padding: 18px;
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.12);
+}
+
+.cover {
+  width: 110px;
+  height: 155px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.info p {
+  margin: 3px 0;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.title {
+  font-size: 22px;
+  margin: 0;
+}
+
+.deleteBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: #ff4747;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.editBtn {
+  border: none;
+  background: #1e90ff;
+  padding: 5px 7px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.editBox input {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.saveBtn {
+  background: #27ae60;
+  border: none;
+  padding: 4px 7px;
+  color: white;
+  border-radius: 4px;
+}
+
+.cancelBtn {
+  background: gray;
+  border: none;
+  padding: 4px 7px;
+  color: white;
+  border-radius: 4px;
+}

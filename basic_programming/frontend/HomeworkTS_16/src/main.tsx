@@ -1,13 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import TailwindFormComponent from "./components/TailwindFormComponent";
-import "./style.css";
-import store from "./components/store/store";
+import React, { type JSX } from "react";
+import BooksPage from "./components/Books/Books";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <TailwindFormComponent />
-    </Provider>
-  </React.StrictMode>
-);
+export default function App(): JSX.Element {
+  return (
+    <div style={{ padding: 24, background: "#f3f4f6", minHeight: "100vh" }}>
+      <BooksPage />
+    </div>
+  );
+}
