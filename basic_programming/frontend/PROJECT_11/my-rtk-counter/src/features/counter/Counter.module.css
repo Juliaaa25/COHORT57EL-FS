@@ -1,0 +1,58 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  background: #fff4ec;
+  padding: 40px;
+  border-radius: 20px;
+  width: 350px;
+
+  margin: 60px auto;
+
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.15);
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ff5a3c;
+  margin-bottom: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  padding: 12px 25px;
+  font-size: 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+
+  transition: 0.2s;
+}
+
+.plus {
+  background: #ff7366;
+  color: white;
+}
+.plus:hover {
+  background: #ff4d3a;
+  transform: scale(1.07);
+}
+
+.minus {
+  background: #ffd1c4;
+  color: #a83b2c;
+}
+.minus:hover {
+  background: #ffb6a2;
+  transform: scale(1.07);
+}

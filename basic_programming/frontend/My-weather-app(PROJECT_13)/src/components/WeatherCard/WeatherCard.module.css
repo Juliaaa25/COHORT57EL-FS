@@ -1,0 +1,27 @@
+.card {
+  margin: 20px auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #6ba4ff, #003b8e);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.city {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.temp {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.desc {
+  font-size: 18px;
+  text-transform: capitalize;
+  opacity: 0.9;
+}

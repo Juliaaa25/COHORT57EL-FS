@@ -1,19 +1,29 @@
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { decrement, increment } from "./counterSlice";
+import styles from "./Counter.module.css";
 
 export const Counter = () => {
   const value = useAppSelector((state) => state.counter.value);
-  // → Получаем текущий счётчик из Redux.
   const dispatch = useAppDispatch();
-  // → Берём типизированный dispatch.
 
   return (
-    <div style={{ textAlign: "center", marginTop: "40px" }}>
-      <h1>Счетчик: {value}</h1>
-      <div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
-        <button onClick={() => dispatch(increment())}>+1</button>
-        {/* // → Отправляем действие увеличения счётчика. */}
-        <button onClick={() => dispatch(decrement())}>-1</button>
+    <div className={styles.wrapper}>
+      <h1 className={styles.title}>Счётчик: {value}</h1>
+
+      <div className={styles.buttons}>
+        <button
+          className={`${styles.btn} ${styles.plus}`}
+          onClick={() => dispatch(increment())}
+        >
+          +1
+        </button>
+
+        <button
+          className={`${styles.btn} ${styles.minus}`}
+          onClick={() => dispatch(decrement())}
+        >
+          –1
+        </button>
       </div>
     </div>
   );

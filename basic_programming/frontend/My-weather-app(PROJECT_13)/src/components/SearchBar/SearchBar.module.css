@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.input {
+  padding: 12px;
+  font-size: 18px;
+  width: 240px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+}
+
+.button {
+  padding: 12px 20px;
+  margin-left: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #4a7dff;
+  border: none;
+  color: #fff;
+  transition: 0.2s;
+}
+
+.button:hover {
+  background: #2d5be3;
+}

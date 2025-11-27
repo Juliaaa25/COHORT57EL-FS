@@ -102,3 +102,27 @@
   font-size: 20px;
   margin-top: 40px;
 }
+
+.counter {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.counterBtn {
+  padding: 6px 14px;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.quantity {
+  min-width: 24px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}

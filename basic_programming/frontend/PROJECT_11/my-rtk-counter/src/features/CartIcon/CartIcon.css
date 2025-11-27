@@ -1,0 +1,43 @@
+.cartIcon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ff2c2c;
+  color: white;
+  padding: 14px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.4);
+  transition: 0.2s;
+
+  /* чтобы изображение и badge нормально размещались */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartIcon:hover {
+  transform: scale(1.1);
+}
+
+/* ➕ ДОБАВЬ ЭТО */
+.cartIconImg {
+  width: 26px; /* подгони размер под кнопку */
+  height: 26px;
+  object-fit: contain;
+  pointer-events: none; /* чтобы клик проходил через картинку */
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #000;
+  color: white;
+  font-size: 12px;
+  padding: 1px 7px;
+  border-radius: 50%;
+  font-weight: bold;
+}

@@ -1,0 +1,24 @@
+.item {
+  padding: 12px;
+  border-radius: 12px;
+  background: #eef3ff;
+  text-align: center;
+  width: 120px;
+  margin: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.date {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.temp {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.desc {
+  font-size: 14px;
+  opacity: 0.8;
+}

@@ -1,0 +1,206 @@
+/* overlay на весь экран */
+.overlay {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 9999;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* модалка по центру, адаптивная */
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #ffffff;
+  color: #111;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* кнопка закрытия (правый верхний угол модалки) */
+.closeBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* заголовок */
+.title {
+  margin: 4px 0 16px 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* пустая корзина (центрированная надпись) */
+.empty {
+  padding: 40px 10px;
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+}
+
+/* контейнер для списка айтемов */
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+/* карточка товара в корзине */
+.item {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fafafa;
+  border: 1px solid #eee;
+}
+
+/* картинка товара */
+.image {
+  width: 120px;
+  height: 100px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+/* информация о товаре */
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* название и цена */
+.name {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.price {
+  font-size: 14px;
+  color: #333;
+}
+
+/* контролы (количество, удалить) */
+.controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+/* кнопки + и - */
+.counterBtn {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* число количества */
+.quantity {
+  min-width: 36px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* обычная кнопка */
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* кнопка удалить */
+.remove {
+  background: #ff6666;
+  color: white;
+  border: none;
+}
+
+/* нижняя панель: итог и кнопки */
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* итоговая сумма */
+.total {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* кнопки внизу: слева очистить, справа оформить */
+.footerButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.clearBtn {
+  background: #f0f0f0;
+  color: #111;
+  border: 1px solid #ddd;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.checkoutBtn {
+  background: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* адаптация под мобильные экраны */
+@media (max-width: 600px) {
+  .modal {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .footerButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
