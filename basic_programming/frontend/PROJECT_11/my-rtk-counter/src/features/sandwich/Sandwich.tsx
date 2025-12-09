@@ -1,33 +1,53 @@
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { addIngredient, clearSandwich } from "./sandwichSlice";
+import styles from "./Sandwich.module.css"; // исправлено
 
 export const Sandwich = () => {
-  const value = useAppSelector((state) => state.sandwich.value);
-  // → Получаем строку ингредиентов
-
+  const ingredients = useAppSelector((state) => state.sandwich.value);
   const dispatch = useAppDispatch();
-  // → Берём типизированный dispatch
 
   return (
-    <div style={{ textAlign: "center", marginTop: "40px" }}>
-      <h1>Сэндвич: {value || "(все съели)"} </h1>
+    <div className={styles.fullscreen}>
+      <div className={styles.wrapper}>
+        <h1 className={styles.title}>
+          Сэндвич: {ingredients || "(все съели)"}
+        </h1>
 
-      <div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
-        <button onClick={() => dispatch(addIngredient("cheese"))}>
-          Add cheese
-        </button>
+        <div className={styles.buttons}>
+          <button
+            className={`${styles.btn} ${styles.cheese}`}
+            onClick={() => dispatch(addIngredient("cheese"))}
+          >
+            Добавить сыр
+          </button>
 
-        <button onClick={() => dispatch(addIngredient("salami"))}>
-          Add salami
-        </button>
+          <button
+            className={`${styles.btn} ${styles.salami}`}
+            onClick={() => dispatch(addIngredient("salami"))}
+          >
+            Добавить салями
+          </button>
 
-        <button onClick={() => dispatch(addIngredient("bread"))}>
-          Add bread
-        </button>
+          <button
+            className={`${styles.btn} ${styles.bread}`}
+            onClick={() => dispatch(addIngredient("bread"))}
+          >
+            Добавить хлеб
+          </button>
 
-        <button onClick={() => dispatch(clearSandwich())}>
-          Clear ingredients
-        </button>
+          <button
+            className={`${styles.btn} ${styles.clear}`}
+            onClick={() => dispatch(clearSandwich())}
+          >
+            Очистить
+          </button>
+        </div>
+
+        <img
+          className={styles.image}
+          src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80"
+          alt="Сэндвич"
+        />
       </div>
     </div>
   );

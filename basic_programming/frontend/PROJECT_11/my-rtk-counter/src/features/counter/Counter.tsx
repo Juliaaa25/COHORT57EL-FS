@@ -7,23 +7,28 @@ export const Counter = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <div className={styles.wrapper}>
-      <h1 className={styles.title}>Счётчик: {value}</h1>
+    <div className={styles.fullscreen}>
+      {" "}
+      {/* ← Новый fullscreen контейнер */}
+      <div className={styles.wrapper}>
+        {" "}
+        {/* ← Твой прежний блок */}
+        <h1 className={styles.title}>Счётчик: {value}</h1>
+        <div className={styles.buttons}>
+          <button
+            className={`${styles.btn} ${styles.plus}`}
+            onClick={() => dispatch(increment())}
+          >
+            +1
+          </button>
 
-      <div className={styles.buttons}>
-        <button
-          className={`${styles.btn} ${styles.plus}`}
-          onClick={() => dispatch(increment())}
-        >
-          +1
-        </button>
-
-        <button
-          className={`${styles.btn} ${styles.minus}`}
-          onClick={() => dispatch(decrement())}
-        >
-          –1
-        </button>
+          <button
+            className={`${styles.btn} ${styles.minus}`}
+            onClick={() => dispatch(decrement())}
+          >
+            –1
+          </button>
+        </div>
       </div>
     </div>
   );

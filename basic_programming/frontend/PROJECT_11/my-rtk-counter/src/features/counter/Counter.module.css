@@ -1,3 +1,14 @@
+.fullscreen {
+  height: 60vh; /* ← Полный экран */
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #fff4ec; /* или любой фон */
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;

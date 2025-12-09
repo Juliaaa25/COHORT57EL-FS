@@ -1,236 +1,18 @@
-// src/features/users/UsersList.tsx
-import {
-  useEffect,
-  type JSXElementConstructor,
-  type Key,
-  type ReactElement,
-  type ReactNode,
-  type ReactPortal,
-} from "react";
-
-import {
-  fetchUsers,
-  selectUsers,
-  selectLoading,
-  selectError,
-} from "./usersSlice";
-
 import styles from "./UsersList.module.css";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { useGetUsersQuery } from "./usersApi";
 
 export const UsersList = () => {
-  const dispatch = useAppDispatch();
+  const { data: users, isLoading, error } = useGetUsersQuery();
 
-  const users = useAppSelector(selectUsers);
-  const loading = useAppSelector(selectLoading);
-  const error = useAppSelector(selectError);
-
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
-
-  if (loading) return <p className={styles.loading}>Загрузка...</p>;
-  if (error) return <p className={styles.error}>{error}</p>;
+  if (isLoading) return <p className={styles.loading}>Загрузка...</p>;
+  if (error) return <p className={styles.error}>Ошибка загрузки</p>;
 
   return (
-    <div className={styles.grid}>
-      {users.map(
-        (user: {
-          id: Key | null | undefined;
-          name: {
-            firstname:
-              | string
-              | number
-              | bigint
-              | boolean
-              | ReactElement<unknown, string | JSXElementConstructor<any>>
-              | Iterable<ReactNode>
-              | ReactPortal
-              | Promise<
-                  | string
-                  | number
-                  | bigint
-                  | boolean
-                  | ReactPortal
-                  | ReactElement<unknown, string | JSXElementConstructor<any>>
-                  | Iterable<ReactNode>
-                  | null
-                  | undefined
-                >
-              | null
-              | undefined;
-            lastname:
-              | string
-              | number
-              | bigint
-              | boolean
-              | ReactElement<unknown, string | JSXElementConstructor<any>>
-              | Iterable<ReactNode>
-              | ReactPortal
-              | Promise<
-                  | string
-                  | number
-                  | bigint
-                  | boolean
-                  | ReactPortal
-                  | ReactElement<unknown, string | JSXElementConstructor<any>>
-                  | Iterable<ReactNode>
-                  | null
-                  | undefined
-                >
-              | null
-              | undefined;
-          };
-          email:
-            | string
-            | number
-            | bigint
-            | boolean
-            | ReactElement<unknown, string | JSXElementConstructor<any>>
-            | Iterable<ReactNode>
-            | ReactPortal
-            | Promise<
-                | string
-                | number
-                | bigint
-                | boolean
-                | ReactPortal
-                | ReactElement<unknown, string | JSXElementConstructor<any>>
-                | Iterable<ReactNode>
-                | null
-                | undefined
-              >
-            | null
-            | undefined;
-          username:
-            | string
-            | number
-            | bigint
-            | boolean
-            | ReactElement<unknown, string | JSXElementConstructor<any>>
-            | Iterable<ReactNode>
-            | ReactPortal
-            | Promise<
-                | string
-                | number
-                | bigint
-                | boolean
-                | ReactPortal
-                | ReactElement<unknown, string | JSXElementConstructor<any>>
-                | Iterable<ReactNode>
-                | null
-                | undefined
-              >
-            | null
-            | undefined;
-          phone:
-            | string
-            | number
-            | bigint
-            | boolean
-            | ReactElement<unknown, string | JSXElementConstructor<any>>
-            | Iterable<ReactNode>
-            | ReactPortal
-            | Promise<
-                | string
-                | number
-                | bigint
-                | boolean
-                | ReactPortal
-                | ReactElement<unknown, string | JSXElementConstructor<any>>
-                | Iterable<ReactNode>
-                | null
-                | undefined
-              >
-            | null
-            | undefined;
-          address: {
-            city:
-              | string
-              | number
-              | bigint
-              | boolean
-              | ReactElement<unknown, string | JSXElementConstructor<any>>
-              | Iterable<ReactNode>
-              | ReactPortal
-              | Promise<
-                  | string
-                  | number
-                  | bigint
-                  | boolean
-                  | ReactPortal
-                  | ReactElement<unknown, string | JSXElementConstructor<any>>
-                  | Iterable<ReactNode>
-                  | null
-                  | undefined
-                >
-              | null
-              | undefined;
-            street:
-              | string
-              | number
-              | bigint
-              | boolean
-              | ReactElement<unknown, string | JSXElementConstructor<any>>
-              | Iterable<ReactNode>
-              | ReactPortal
-              | Promise<
-                  | string
-                  | number
-                  | bigint
-                  | boolean
-                  | ReactPortal
-                  | ReactElement<unknown, string | JSXElementConstructor<any>>
-                  | Iterable<ReactNode>
-                  | null
-                  | undefined
-                >
-              | null
-              | undefined;
-            number:
-              | string
-              | number
-              | bigint
-              | boolean
-              | ReactElement<unknown, string | JSXElementConstructor<any>>
-              | Iterable<ReactNode>
-              | ReactPortal
-              | Promise<
-                  | string
-                  | number
-                  | bigint
-                  | boolean
-                  | ReactPortal
-                  | ReactElement<unknown, string | JSXElementConstructor<any>>
-                  | Iterable<ReactNode>
-                  | null
-                  | undefined
-                >
-              | null
-              | undefined;
-            zipcode:
-              | string
-              | number
-              | bigint
-              | boolean
-              | ReactElement<unknown, string | JSXElementConstructor<any>>
-              | Iterable<ReactNode>
-              | ReactPortal
-              | Promise<
-                  | string
-                  | number
-                  | bigint
-                  | boolean
-                  | ReactPortal
-                  | ReactElement<unknown, string | JSXElementConstructor<any>>
-                  | Iterable<ReactNode>
-                  | null
-                  | undefined
-                >
-              | null
-              | undefined;
-          };
-        }) => (
+    <div className={styles.wrapper}>
+      <h1 className={styles.title}>Пользователи</h1>
+
+      <div className={styles.grid}>
+        {users?.map((user) => (
           <div key={user.id} className={styles.card}>
             <h2 className={styles.name}>
               {user.name.firstname} {user.name.lastname}
@@ -256,8 +38,8 @@ export const UsersList = () => {
               <p>ZIP: {user.address.zipcode}</p>
             </div>
           </div>
-        )
-      )}
+        ))}
+      </div>
     </div>
   );
 };

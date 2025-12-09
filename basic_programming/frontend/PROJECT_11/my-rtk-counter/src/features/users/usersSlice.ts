@@ -1,6 +1,7 @@
 // src/features/users/usersSlice.ts
 
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+{
+  /* import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type { RootState } from "../../app/store";
 
 export interface User {
@@ -75,7 +76,8 @@ export const selectUsers = (state: RootState) => state.users.list;
 export const selectLoading = (state: RootState) => state.users.loading;
 export const selectError = (state: RootState) => state.users.error;
 
-export default usersSlice.reducer;
+export default usersSlice.reducer;  */
+}
 
 //const fetchUsers — создаём переменную, в которой будет храниться thunk-функция.
 //fetchUsers — это имя асинхронного экшена, который мы будем диспатчить: dispatch(fetchUsers());

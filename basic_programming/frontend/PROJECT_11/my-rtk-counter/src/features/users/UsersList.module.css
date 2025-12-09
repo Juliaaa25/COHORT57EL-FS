@@ -1,73 +1,65 @@
-/* Контейнер */
-.grid {
+.wrapper {
+  width: 100vw; /* занимаем всю ширину экрана */
+  min-height: 100vh; /* занимаем всю высоту экрана */
+  padding: 40px;
+  background: #fff8f0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  padding: 24px;
-  justify-content: center; /* красиво центрируем */
+  flex-direction: column;
+  align-items: center; /* центрируем */
 }
 
-/* Карточка */
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.grid {
+  width: 100%; /* сетка на весь экран */
+  max-width: 1600px; /* ограничиваем, чтобы не растягивалось слишком */
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  padding: 0 20px; /* чтобы карточки не прилипали к краям */
+}
+
 .card {
   background: white;
-  border: 1px solid #e3e3e3;
   padding: 20px;
   border-radius: 14px;
-  box-shadow: 0 4px 10px rgb(0 0 0 / 0.08);
-  transition: 0.25s ease;
-
-  /* Размер карточки на больших экранах (примерно 3–4 в ряд) */
-  flex: 1 1 280px;
-  max-width: 320px; /* чтобы не растягивались слишком широко */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgb(0 0 0 / 0.15);
-}
-
-/* Мобильные устройства */
-@media (max-width: 600px) {
-  .grid {
-    padding: 16px;
-    gap: 16px;
-  }
-
-  .card {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
 }
 
 .name {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 12px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .field {
-  color: #444;
+  font-size: 16px;
   margin-bottom: 6px;
-  font-size: 15px;
 }
 
 .field span {
-  font-weight: 600;
-  color: #000;
+  font-weight: 700;
 }
 
 .address {
-  margin-top: 14px;
-  padding-top: 10px;
-  border-top: 1px solid #eee;
+  margin-top: 12px;
+  font-size: 15px;
 }
 
-.address span {
-  font-weight: 600;
-}
-
-.loading {
+.loading,
+.error {
   text-align: center;
   font-size: 22px;
-  margin-top: 40px;
+  font-weight: 600;
+  padding-top: 40px;
 }

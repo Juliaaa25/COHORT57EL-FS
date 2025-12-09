@@ -1,0 +1,84 @@
+.fullscreen {
+  height: 70vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff8f0;
+  padding: 20px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background: #fff5e6;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.15);
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ff5a3c;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cheese {
+  background-color: #ffde59;
+  color: #b58100;
+}
+.cheese:hover {
+  transform: scale(1.05);
+}
+
+.salami {
+  background-color: #ff7366;
+  color: white;
+}
+.salami:hover {
+  transform: scale(1.05);
+}
+
+.bread {
+  background-color: #f5deb3;
+  color: #8b5a2b;
+}
+.bread:hover {
+  transform: scale(1.05);
+}
+
+.clear {
+  background-color: #d3d3d3;
+  color: #333;
+}
+.clear:hover {
+  transform: scale(1.05);
+}
+
+.image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgb(0 0 0 / 0.2);
+}
