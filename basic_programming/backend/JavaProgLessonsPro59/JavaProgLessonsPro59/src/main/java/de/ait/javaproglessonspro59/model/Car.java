@@ -4,8 +4,13 @@ package de.ait.javaproglessonspro59.model;
 import de.ait.javaproglessonspro59.enums.CarStatus;
 import de.ait.javaproglessonspro59.enums.FuelType;
 import de.ait.javaproglessonspro59.enums.Transmission;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -40,32 +45,44 @@ public class Car {
     private int price;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private CarStatus status;
 
-    @Column
-    private String color;
-
-    @Min(1)
-    private int horsepower;
-
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private FuelType fuelType;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Transmission transmission;
 
+    @Column(nullable = false)
+    @NotBlank(message = "Color must not be empty")
+    private String color;
+
+    @Column(nullable = false)
+    @Min(value = 1, message = "Horsepower must be greater than 0")
+    private int horsepower;
 
 
-    public Car(String brand, String model, int productionYear, int mileage, int price, CarStatus status, FuelType fuelType, Transmission transmission, String color, int horsepower) {
+    public Car(String brand, String model,
+               int productionYear,
+               int mileage,
+               int price,
+               CarStatus status,
+               FuelType fuelType,
+               Transmission transmission,
+               String color,
+               int horsepower) {
         this.brand = brand;
         this.model = model;
         this.productionYear = productionYear;
         this.mileage = mileage;
         this.price = price;
         this.status = status;
-        this.fuelType = fuelType;
-        this.transmission = transmission;
         this.color = color;
         this.horsepower = horsepower;
+        this.fuelType = fuelType;
+        this.transmission = transmission;
     }
 }
