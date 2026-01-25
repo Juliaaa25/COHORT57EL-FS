@@ -1,6 +1,5 @@
 package de.ait.javaproglessonspro59;
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.ait.javaproglessonspro59.enums.CarStatus;
 import de.ait.javaproglessonspro59.enums.FuelType;
@@ -148,14 +147,52 @@ public class CarControllerIT {
         List<Car> cars = carRepository.findAll();
         assertTrue(cars.isEmpty());
 
+    }
+
+    @Test
+    @DisplayName("POST /api/cars should return 400 when model is null")
+    void testCreateCarWithNullModel() throws Exception {
+        Car car = buildValidCar("Audi", "A6");
+        car.setModel(null);
+
+        String jsonBody = objectMapper.writeValueAsString(car);
+
+        mockMvc.perform(post("/api/cars")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonBody))
+                .andExpect(status().isBadRequest());
+
+        List<Car> cars = carRepository.findAll();
+        assertTrue(cars.isEmpty());
+    }
+
+    @Test
+    @DisplayName("POST /api/cars should not save car in H2, invalid JSON return 400")
+    void testCreateNewCarShouldReturn400TransmissionNotValid() throws Exception {
+        Car car = buildValidCar("Audi", "A6");
+        car.setTransmission(null);
+
+        String jsonBody = objectMapper.writeValueAsString(car);
+
+        mockMvc.perform(
+                        post("/api/cars")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(jsonBody))
+                .andExpect(status().isBadRequest());
+
+        List<Car> cars = carRepository.findAll();
+        assertTrue(cars.isEmpty());
+
 
     }
 
     @Test
     @DisplayName("PUT /api/cars/{id} should update car and return 200")
-    void testValidPutShouldReturn200() throws Exception {
+    void testUpdateCarShouldReturn200() throws Exception {
         Car saved = carRepository.save(buildValidCar("BMW", "X5"));
-        saved.setPrice(99999);
+
+        saved.setBrand("Audi");
+        saved.setModel("A8");
 
         String jsonBody = objectMapper.writeValueAsString(saved);
 
@@ -166,13 +203,16 @@ public class CarControllerIT {
                 .andExpect(status().isOk());
 
         Car updated = carRepository.findById(saved.getId()).get();
-        assertEquals(99999, updated.getPrice());
+        assertEquals("Audi", updated.getBrand());
+        assertEquals("A8", updated.getModel());
     }
 
+
     @Test
-    @DisplayName("PUT /api/cars/{id} should return 400 and not update car")
-    void testInvalidPutShouldReturn400() throws Exception {
+    @DisplayName("PUT /api/cars/{id} should return 400 for invalid data")
+    void testUpdateCarShouldReturn400() throws Exception {
         Car saved = carRepository.save(buildValidCar("BMW", "X5"));
+
         saved.setBrand(""); // делаем невалидным
 
         String jsonBody = objectMapper.writeValueAsString(saved);
@@ -184,25 +224,7 @@ public class CarControllerIT {
                 .andExpect(status().isBadRequest());
 
         Car notUpdated = carRepository.findById(saved.getId()).get();
-        assertEquals("BMW", notUpdated.getBrand());
-    }
-
-    @Test
-    @DisplayName("PUT /api/cars/{id} should update car with valid data")
-    void testUpdateCarValid() throws Exception {
-        Car saved = carRepository.save(buildValidCar("BMW", "X5"));
-        saved.setModel("X6"); // новое значение
-
-        String jsonBody = objectMapper.writeValueAsString(saved);
-
-        mockMvc.perform(
-                        put("/api/cars/{id}", saved.getId())
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content(jsonBody))
-                .andExpect(status().isOk());
-
-        Car updated = carRepository.findById(saved.getId()).get();
-        assertEquals("X6", updated.getModel());
+        assertEquals("BMW", notUpdated.getBrand()); // не изменился
     }
 
 

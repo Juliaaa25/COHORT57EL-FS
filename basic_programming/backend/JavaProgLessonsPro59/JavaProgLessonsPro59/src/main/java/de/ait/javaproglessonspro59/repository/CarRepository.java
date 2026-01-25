@@ -26,4 +26,6 @@ public interface CarRepository extends JpaRepository<Car, Long> {
     List<Car> findByPriceBetween(int min, int max);
 
     List<Car> findByBrandIgnoreCase(String brand);
+
+    boolean existsByColorIgnoreCase(String color);
 }
