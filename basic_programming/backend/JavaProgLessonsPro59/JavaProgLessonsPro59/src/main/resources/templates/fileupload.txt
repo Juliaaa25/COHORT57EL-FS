@@ -1,0 +1,2 @@
+multipart/form-data
+../../etc/passwd/file.batipart/form-data
