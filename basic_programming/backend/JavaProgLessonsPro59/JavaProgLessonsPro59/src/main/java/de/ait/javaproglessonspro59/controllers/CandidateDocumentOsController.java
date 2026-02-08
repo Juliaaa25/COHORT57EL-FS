@@ -21,7 +21,6 @@ import java.util.List;
 @RequestMapping("/api/candidates/documents/os")
 public class CandidateDocumentOsController {
 
-    // ВОТ ЭТОГО ПОЛЯ У ТЕБЯ НЕ ХВАТАЛО
     private final CandidateDocumentOsService service;
 
     public CandidateDocumentOsController(CandidateDocumentOsService service) {

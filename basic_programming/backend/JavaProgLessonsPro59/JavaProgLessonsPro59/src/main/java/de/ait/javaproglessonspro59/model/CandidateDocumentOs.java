@@ -45,11 +45,9 @@ public class CandidateDocumentOs {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
-    // ОБЯЗАТЕЛЬНЫЙ пустой конструктор для JPA
     public CandidateDocumentOs() {
     }
 
-    // Нормальный рабочий конструктор
     public CandidateDocumentOs(
             String candidateEmail,
             CandidateDocType docType,
@@ -69,8 +67,6 @@ public class CandidateDocumentOs {
         this.storagePath = storagePath;
         this.createdAt = createdAt;
     }
-
-    // ===== Геттеры =====
 
     public Long getId() {
         return id;

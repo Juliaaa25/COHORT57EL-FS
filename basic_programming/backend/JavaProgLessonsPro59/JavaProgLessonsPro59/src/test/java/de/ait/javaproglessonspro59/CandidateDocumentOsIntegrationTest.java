@@ -83,13 +83,11 @@ public class CandidateDocumentOsIntegrationTest {
                         .andExpect(status().isCreated())
                         .andReturn();
 
-        // ВОТ ТУТ ИСПРАВЛЕНИЕ
         Number idNum = JsonPath.read(
                 uploadResult.getResponse().getContentAsString(),
                 "$.id"
         );
         Long id = idNum.longValue();
-        // -------------------
 
         mockMvc.perform(get("/api/candidates/documents/os")
                         .param("candidateEmail", "bob@mail.com"))

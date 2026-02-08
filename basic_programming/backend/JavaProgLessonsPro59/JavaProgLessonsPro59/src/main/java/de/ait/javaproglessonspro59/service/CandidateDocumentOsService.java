@@ -65,7 +65,6 @@ public class CandidateDocumentOsService {
         return email.replace("@", "at").replace(".", "_");
     }
 
-    // ===================== UPLOAD =====================
     public CandidateDocumentOs upload(
             String candidateEmail,
             CandidateDocType docType,
@@ -110,19 +109,16 @@ public class CandidateDocumentOsService {
         }
     }
 
-    // ===================== LIST =====================
     public List<CandidateDocumentOs> list(String candidateEmail) {
         return repository.findAllByCandidateEmail(candidateEmail);
     }
 
-    // ===================== GET =====================
     public CandidateDocumentOs get(Long id) {
         return repository.findById(id)
                 .orElseThrow(() ->
                         new RuntimeException("Document not found: " + id));
     }
 
-    // ===================== DELETE =====================
     public void delete(Long id) {
         CandidateDocumentOs doc = get(id);
 
